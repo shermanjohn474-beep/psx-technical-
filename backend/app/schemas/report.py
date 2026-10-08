@@ -57,7 +57,7 @@ class AnalysisReport(BaseModel):
     engine_version: str
     overview: StockOverview
     data_quality: DataQualityReport
-    trend: MTFResult  # B
+    trend: MTFResult | None = None  # B (None when multi-timeframe analysis is skipped)
     indicators: dict  # C
     patterns: list[PatternResult]  # D (current)
     historical_patterns: list[PatternResult] = Field(default_factory=list)

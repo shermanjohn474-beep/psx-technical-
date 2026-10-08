@@ -1,1 +1,0 @@
-{"root":["./src/App.tsx","./src/api.ts","./src/main.tsx","./src/types.ts","./src/components/PriceChart.tsx","./src/components/ReportPanels.tsx","./src/pages/Alerts.tsx","./src/pages/Backtest.tsx","./src/pages/ChartAnalysis.tsx","./src/pages/Dashboard.tsx","./src/pages/Scanner.tsx","./src/pages/Screenshot.tsx"],"version":"5.9.3"}

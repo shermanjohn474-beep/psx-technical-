@@ -1,3 +1,5 @@
+import os
+os.environ.setdefault("PSX_SKIP_DOTENV", "1")
 import sys
 from pathlib import Path
 

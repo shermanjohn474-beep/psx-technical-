@@ -15,6 +15,23 @@ from pathlib import Path
 BACKEND_ROOT = Path(__file__).resolve().parents[2]
 
 
+def _load_dotenv() -> None:
+    """Minimal .env loader (repo root or backend/). Never overrides real environment variables."""
+    for p in (BACKEND_ROOT.parent / ".env", BACKEND_ROOT / ".env"):
+        if not p.is_file():
+            continue
+        for line in p.read_text().splitlines():
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            k, v = line.split("=", 1)
+            os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+
+
+if "PYTEST_CURRENT_TEST" not in os.environ and not os.environ.get("PSX_SKIP_DOTENV"):
+    _load_dotenv()
+
+
 def _env(name: str, default: str | None = None) -> str | None:
     value = os.environ.get(name)
     return value if value not in (None, "") else default

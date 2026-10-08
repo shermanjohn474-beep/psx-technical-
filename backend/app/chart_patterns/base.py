@@ -148,6 +148,7 @@ def evaluate_breakout(
     target: float | None = None,
     *,
     expires: bool = True,
+    max_wait: int | None = None,
 ) -> BreakoutEval:
     """Walk forward from ``start`` and classify the lifecycle stage.
 
@@ -184,9 +185,10 @@ def evaluate_breakout(
                 ev.confirmation_index = j
                 ev.rel_volume = ctx.volume_at(j)
                 continue
-            if expires and j - start > cfg.max_wait_bars:
+            wait = max_wait if max_wait is not None else cfg.max_wait_bars
+            if expires and j - start > wait:
                 ev.stage, ev.invalidation_index = PatternStage.INVALIDATED, j
-                ev.notes.append(f"Expired: no resolution within {cfg.max_wait_bars} bars.")
+                ev.notes.append(f"Expired: no resolution within {wait} bars.")
                 return ev
         else:
             if target is not None and sign * (ctx.h[j] if bull else ctx.l[j]) >= sign * target:

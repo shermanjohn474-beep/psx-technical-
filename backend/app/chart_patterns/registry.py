@@ -8,6 +8,10 @@ from app.chart_patterns.double_triple import DoubleTripleDetector
 from app.chart_patterns.flags import FlagPennantDetector
 from app.chart_patterns.head_shoulders import HeadShouldersDetector
 from app.chart_patterns.two_line import TwoLineDetector
+from app.chart_patterns.rounding_cup import RoundingCupDetector
+from app.chart_patterns.reversal_misc import DiamondDetector, TrapDetector, VReversalDetector
+from app.chart_patterns.continuation_misc import CompressionBreakoutDetector, MeasuredMoveDetector, VCPDetector
+from app.harmonic_patterns.harmonics import ElliottDetector, HarmonicDetector
 from app.schemas.patterns import PatternResult
 
 DETECTORS: list[PatternDetector] = [
@@ -15,6 +19,15 @@ DETECTORS: list[PatternDetector] = [
     DoubleTripleDetector(),
     TwoLineDetector(),
     FlagPennantDetector(),
+    RoundingCupDetector(),
+    DiamondDetector(),
+    VReversalDetector(),
+    TrapDetector(),
+    MeasuredMoveDetector(),
+    CompressionBreakoutDetector(),
+    VCPDetector(),
+    HarmonicDetector(),
+    ElliottDetector(),
 ]
 
 
@@ -35,6 +48,7 @@ def detect_patterns(
     include: set[str] | None = None,
     last_candle_complete: bool = True,
     ctx: AnalysisContext | None = None,
+    include_experimental: bool = True,
 ) -> list[PatternResult]:
     if ctx is None:
         if df is None or len(df) < 30:
@@ -43,6 +57,8 @@ def detect_patterns(
     out: list[PatternResult] = []
     for det in DETECTORS:
         if include is not None and not (set(det.pattern_ids) & include):
+            continue
+        if det.experimental and not include_experimental:
             continue
         res = det.detect(ctx)
         if include is not None:

@@ -1,0 +1,22 @@
+date,description,verified
+# Fixed-date Pakistan public holidays. Islamic holidays (Eid ul Fitr, Eid ul Adha,
+# Ashura, Eid Milad-un-Nabi) move every year and MUST be added from the official
+# PSX holiday notice. Unlisted holidays show up as "missing candle" warnings.
+2024-02-05,Kashmir Solidarity Day,false
+2024-03-23,Pakistan Day,false
+2024-05-01,Labour Day,false
+2024-08-14,Independence Day,false
+2024-11-09,Iqbal Day,false
+2024-12-25,Quaid-e-Azam Day,false
+2025-02-05,Kashmir Solidarity Day,false
+2025-03-23,Pakistan Day,false
+2025-05-01,Labour Day,false
+2025-08-14,Independence Day,false
+2025-11-09,Iqbal Day,false
+2025-12-25,Quaid-e-Azam Day,false
+2026-02-05,Kashmir Solidarity Day,false
+2026-03-23,Pakistan Day,false
+2026-05-01,Labour Day,false
+2026-08-14,Independence Day,false
+2026-11-09,Iqbal Day,false
+2026-12-25,Quaid-e-Azam Day,false

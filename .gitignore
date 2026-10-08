@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.sqlite3
+backend/data/
+.env
+node_modules/
+frontend/dist/
+.venv/
+*.egg-info/

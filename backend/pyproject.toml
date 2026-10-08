@@ -1,0 +1,26 @@
+[project]
+name = "psx-technical"
+version = "0.1.0"
+description = "PSX technical analysis & pattern recognition platform"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=1.26",
+    "pandas>=2.2",
+    "scipy>=1.12",
+    "pydantic>=2.6",
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.29",
+    "python-multipart>=0.0.9",
+    "sqlalchemy>=2.0",
+    "httpx>=0.27",
+    "opencv-python-headless>=4.9",
+    "pillow>=10.0",
+]
+
+[project.optional-dependencies]
+talib = ["TA-Lib>=0.4.28"]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

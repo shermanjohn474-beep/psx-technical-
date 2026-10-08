@@ -13,3 +13,4 @@ pytest>=8.0
 # Optional but recommended: reference implementation used by indicator tests
 # and candlestick cross-checks. Tests that need it are skipped if missing.
 TA-Lib>=0.4.28
+anthropic>=1.12

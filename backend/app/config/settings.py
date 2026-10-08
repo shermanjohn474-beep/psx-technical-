@@ -58,7 +58,7 @@ class Settings:
     # AI providers (keys are server-side only).
     ai_provider: str = field(default_factory=lambda: _env("AI_PROVIDER", "none"))  # none|anthropic|openai
     anthropic_api_key: str | None = field(default_factory=lambda: _env("ANTHROPIC_API_KEY"))
-    anthropic_model: str = field(default_factory=lambda: _env("ANTHROPIC_MODEL", "claude-opus-4-8"))
+    anthropic_model: str = field(default_factory=lambda: _env("ANTHROPIC_MODEL", "claude-opus-5-5"))
     openai_api_key: str | None = field(default_factory=lambda: _env("OPENAI_API_KEY"))
     openai_model: str = field(default_factory=lambda: _env("OPENAI_MODEL", "gpt-4o"))
     ai_timeout_seconds: float = field(default_factory=lambda: float(_env("AI_TIMEOUT_SECONDS", "90")))
